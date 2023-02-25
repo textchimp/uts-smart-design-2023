@@ -29,27 +29,26 @@ void draw(){
   // // position on the screen
   //
   
-  //  /// No need for this if using circle(), just one size arg!
-  // float circleSize = random(50, 600);  // save random num into a variable
-  //
-  
+  // FIRST EXAMPLE: random everything!
   // fill( 255, 0, 0 )  then random(255) for each, then HSB
-    
-  
-  // ellipse(
+  // circle(
   //   random(width),  // random x position
   //   random(height), // random y position
-  //   circleSize,     // Same random number for both width and height, from the variable,
-  //   circleSize      // ensuring we always get a perfect circle
+  //   random(200)     // Same random number for both width and height, from the variable,
   // );
 
 
-  // SECOND:
+  // SECOND EXAMPLE: paint using mouse
 
-  // random() gives us a floating-point number, so we have to save it into the same type of variable
-  float randomHue = random( 0, 255 );
-
-  fill( randomHue, 255, 255, 100 ); // last arg "100" here is opacity - make circles semi-transparent!
+  // To get smooth hue colour changes, we can use a built-in variable that is always
+  // growing - 'frameCount' is the number of frames painted since your program started
+  // running. BUT it will cause the hue to get stuck at red, since 255 is the maximum
+  // value for hue. The '%' or 'modulus' operator gives us the remainder of a division;
+  // this will make sure that even when frameCount grows above 255, we always get back
+  // a remainder that is between 0 and 255.
+  // How could you use a global variable and an 'if' condition to do this yourself,
+  // in a less magical but longer (clearer) way?
+  fill( frameCount % 256, 255, 255, 100 ); // last arg "100" here is opacity - make circles semi-transparent
 
   // "Pseudocode" (for planning your program)
   // 1. Get the mouse x, y position
@@ -57,16 +56,9 @@ void draw(){
 
   circle( mouseX, mouseY,  100);
   
-  // 
+  // A bit of random variation around the mouse position? 
   //circle( mouseX  + random(30), mouseY + random(30),  100);
 
-  //delay(500); // slow down the drawing, i.e. sleep for half a second after each draw
-
-  // Draw only on half of screen? Only within smaller rect?
-
-  // IF THERE'S TIME: smooth hue using counter (local vs global!! function scope!)
-  //  plus issue with resetting to 0 at 255
-  // .... then show built-in "frameCount"
 
 
 } // end of draw()

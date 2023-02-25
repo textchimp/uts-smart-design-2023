@@ -1,88 +1,62 @@
-// This is a comment. Comments start with '//' and are
-// ignored by Processing.
-// They are for writing useful notes to yourself or
-// other people about what your code is doing.
-// Comments are your friend! Write lots of comments.
 
-// Shortcuts:
-// cmd + r  :  RUN    (Windows:  ctrl + r)
-// esc      : STOP
-// cmd + /  : toggle comment for current line/selection
+// This is a comment; it is ignored by the computer, it's just for writing
+// messages to humans
+// Write lots of comments to explain what your code is doing!
+
+// Shortcuts
+// cmd + r  :  RUN/PLAY  (Windows: ctrl + r)
+// cmd + /  :  Toggle comments
 
 
-// Define a setup function that Processing will run for us, once, at the start of the program
-// It must be called "setup"  !
+// Define the setup function that Processing will run for us, once, at the start of running the program
+// It MUST be called 'setup'
+
 void setup(){
-
-  size( 1200, 700 );  // define the width and height of the drawing area (canvas)
-  // fullScreen();
-
-  background( 0 );
-
-  println( "Hello World!!!!" );
-  println("Hello again, getting boring now...");
-
-  int pressureSensorReading = 200; // create a new integer variable and store 200 in it
-
-  pressureSensorReading = pressureSensorReading + 100; // add 100 to the variable contents
-
-  println( "pressureSensorReading:", pressureSensorReading );  // "If in doubt, print it out..."
-
-  fill( 0, 255, 0 ); // make the following shapes green ( until the next fill() )
-
-
-  // Draw a circle in the exact middle of the canvas, with a size of 300 by 300
-  // (Note that the variables 'width' and 'height' are provided to us by
-  // Processing; they contain the canvas size numbers we set using
-  // the size(1200, 900) function at the top of the file - but using these
-  // variables saves us from having to type the exact numbers 1200 and
-  // 900 everywhere.)
-
-  //         x pos,     y pos,   width,  height
-  ellipse( width/2,  height/2,     300,  300    );
   
-  // WHAT ABOUT circle(100, 100, 20);
-
-  // Same as above, but arguments split over several lines for readability:
-  //
-  // ellipse(
-  //   width / 2,   // x position (here we are saying "make it half the width of the canvas")
-  //   height / 2,  // y position (half the height)
-  //   80,  // width
-  //   80   // height
-  // );
-
-
-  //      R  G  B
-  fill( 255, 0, 0 ); // change the shape fill colour to now be red
-
-
-  stroke(0, 0, 255); // blue for outlines
-
-  //strokeWeight( 10 );  // Set thickness of outlines (in pixels)
-
-  // noFill(); // Don't fill in shapes with colour at all
-
-  //noStroke(); // Don't draw outlines
-
-
-  // Draw a rectangle! Similar inputs to ellipse():
-  //
-  //    x pos,  y pos,   width,  height
-  rect(   100,    120,     300,     300 );
-
-  // Note: you don't need to use all the spaces as on the line above
-  // The shorter version would be:
-  //
-  // rect( 100, 120, 300, 300 );
-  //
-  // ^ A little bit of space is still nice, or things get harder to read:
-  //
-  // rect(100,120,300,300);
-
-  line(
-    100, 200,  // start x,y point of line
-    800, 400   //   end x,y point of line
-  );
-
-} // end of setup()
+    println( "Hello world!" );
+    
+    int pressureSensorReading = 200; // In Arduino you would actually read a sensor using analogRead()
+    
+    println( "pressure reading: ",  pressureSensorReading );
+    
+    size( 1200, 800 );
+    
+    background( 0 );  // single argument for colours means grayscale: 0 - 255
+    
+    //fullScreen();
+    
+     
+    
+    fill( 255, 0, 0 );
+    
+    //        x   y   diam
+    
+    //int xPos = width/2;
+    
+    stroke( 0, 255, 0 ); // outlines
+    
+    //strokeWeight( 0 );
+    noStroke();
+    
+    circle( width/2, height/2,   200 );
+    
+    fill( 0, 0, 255 );
+    
+    ellipse( 300,700,   800,100 );
+    
+    
+    fill( 50, 255, 0 );
+    
+    rect( 
+      500,  // x pos 
+      600,  // y pos
+      200,  // width
+      300   // width
+    );
+    
+    
+    stroke( 0, 255, 0 );
+    
+    line( 100, 200,    1000, 700  );
+  
+} // end of setup()  
